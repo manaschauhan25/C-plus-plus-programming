@@ -1,23 +1,29 @@
 #include<iostream>
 using namespace std;
 
-void printprime(int n){
+void sieveof(int n){
 
-    cout<<"1,2,";
+if(n<=1) return;
+bool ar[n+1];
+fill(ar,ar+n+1,true);
 
-for(int i=1;i<=n;i++){
-    int a=6*i-1;
-    int b=6*i+1;
-    if(a<=n) cout<<a<<",";
-
-    if(b<=n) cout<<b<<",";
-    else break;
-
+for(int i=2;i*i<=n;i++){
+    if(ar[i]){
+        for(int j=i*2;j<=n;j=j+i){
+            ar[j]=false;
+        }
+    }
 }
+for(int i=2;i<=n;i++){
+    if(ar[i]){
+        cout<<i<<" ";
+    }
+}
+
 }
 
 int main(){
-    printprime(50);
+    sieveof(50);
 return 0;
 
 }
