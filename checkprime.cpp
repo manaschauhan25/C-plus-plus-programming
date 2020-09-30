@@ -1,22 +1,24 @@
 #include<iostream>
 using namespace std;
-bool check(int a){
+bool check(int n){
+int i;
+    for( i=2;i*i<n;i++){
 
-    if(a==2 || a==3)
-        return true;
-if((a-1)%6==0)
+    if (n%i==0 || n%(i+2)==0){
     return true;
-else if((a+1)%6==0)
-    return true;
-
-else if(a==1)
+    }
+    }
     return false;
-return false;
 }
 
 int main(){
-int a=1031;
+int a=35;
 bool b=check(a);
-cout<<b;
+if(b){
+    cout<<"Not Prime";
+}
+else{
+cout<<"prime";
+}
 return 0;
 }
